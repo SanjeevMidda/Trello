@@ -70,4 +70,40 @@ input {
   width: 80%;
   height: 120px;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  /* border: 1px solid blue; */
+  align-items: flex-end;
+  /* padding-bottom: 10px;
+  padding-right: 10px;
+  height: 100%;
+  padding-left: 40px; */
+}
+#moveToActive {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #e383b0;
+  border: none;
+}
+
+#moveToCompleted {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffb200;
+  border: none;
+}
+
+#delete {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #a0f382;
+  border: none;
 }
