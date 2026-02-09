@@ -58,6 +58,16 @@ function App({ children }) {
     },
   ]);
 
+  // filter by current
+  const filteredByCurrent = tasks.filter((task) => task.status === "current");
+
+  // filter by active
+  const filteredByActive = tasks.filter((task) => task.status === "active");
+
+  // filter by completed
+  const filteredByCompleted = tasks.filter(
+    (task) => task.status === "completed"
+  );
   return (
     <div className="App">
       {/* // create title */}
@@ -73,11 +83,35 @@ function App({ children }) {
       {/* // create Content area */}
 
       <div className="contentArea">
-        <MainTaskContainer sectionName="CURRENT" currentNumbers={`(4)`}>
-          <Task />
+        <MainTaskContainer
+          sectionName="CURRENT"
+          currentNumbers={`(4)`}
+          task={filteredByCurrent}
+        >
+          {filteredByCurrent.map((t) => {
+            return <Task taskName={t.taskName} />;
+          })}
         </MainTaskContainer>
-        <MainTaskContainer sectionName="ACTIVE" currentNumbers={`(3)`} />
-        <MainTaskContainer sectionName="COMPLETED" currentNumbers={`(2)`} />
+
+        <MainTaskContainer
+          sectionName="ACTIVE"
+          currentNumbers={`(3)`}
+          task={filteredByActive}
+        >
+          {filteredByActive.map((t) => {
+            return <Task taskName={t.taskName} />;
+          })}
+        </MainTaskContainer>
+
+        <MainTaskContainer
+          sectionName="COMPLETED"
+          currentNumbers={`(2)`}
+          task={filteredByActive}
+        >
+          {filteredByCompleted.map((t) => {
+            return <Task taskName={t.taskName} />;
+          })}
+        </MainTaskContainer>
       </div>
 
       {/* // create section container component */}
