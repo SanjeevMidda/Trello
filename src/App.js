@@ -85,7 +85,7 @@ function App({ children }) {
       <div className="contentArea">
         <MainTaskContainer
           sectionName="CURRENT"
-          currentNumbers={`(4)`}
+          currentNumbers={`(${filteredByCurrent.length})`}
           task={filteredByCurrent}
         >
           {filteredByCurrent.map((t) => {
@@ -95,7 +95,7 @@ function App({ children }) {
 
         <MainTaskContainer
           sectionName="ACTIVE"
-          currentNumbers={`(3)`}
+          currentNumbers={`(${filteredByActive.length})`}
           task={filteredByActive}
         >
           {filteredByActive.map((t) => {
@@ -105,7 +105,7 @@ function App({ children }) {
 
         <MainTaskContainer
           sectionName="COMPLETED"
-          currentNumbers={`(2)`}
+          currentNumbers={`(${filteredByCompleted.length})`}
           task={filteredByActive}
         >
           {filteredByCompleted.map((t) => {
