@@ -42,6 +42,11 @@ input {
   border: 1px solid rgb(218, 218, 218);
   border-radius: 20px 20px 0px 0px;
   margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
 }
 
 .contentArea {
@@ -57,4 +62,12 @@ input {
   h1 {
     font-weight: 600;
   }
+}
+
+.taskWrapper {
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 20px 20px;
+  width: 80%;
+  height: 120px;
+  display: flex;
 }
