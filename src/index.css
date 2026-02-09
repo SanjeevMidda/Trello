@@ -47,6 +47,8 @@ input {
   align-items: center;
   flex-direction: column;
   padding-top: 30px;
+  overflow: scroll;
+  gap: 30px;
 }
 
 .contentArea {
