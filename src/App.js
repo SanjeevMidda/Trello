@@ -111,6 +111,8 @@ function App({ children }) {
           status: "current",
         },
       ]);
+
+      setUserInput("");
     }
 
     console.log("working");
