@@ -99,9 +99,24 @@ function App({ children }) {
     setUserInput(e.target.value);
   };
 
-  console.log(userInput);
+  // Create function to add new Task
+
+  const addNewTask = (e) => {
+    if (e.key === "Enter") {
+      setTasks([
+        ...tasks,
+        {
+          id: tasks.length + 1,
+          taskName: userInput,
+          status: "current",
+        },
+      ]);
+    }
+
+    console.log("working");
+  };
   return (
-    <div className="App">
+    <div className="App" onKeyDown={addNewTask}>
       {/* // create title */}
 
       <header>
