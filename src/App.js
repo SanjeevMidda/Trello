@@ -60,10 +60,20 @@ function App({ children }) {
 
   // Create function to move to Active
   const moveToActive = (id) => {
-    console.log(id);
     setTasks((prev) =>
       prev.map((task) =>
         task.id === id ? { ...task, status: "active" } : task
+      )
+    );
+
+    console.log(id);
+  };
+
+  // create function to move to Completed
+  const moveToCompleted = (id) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, status: "completed" } : task
       )
     );
   };
@@ -104,6 +114,8 @@ function App({ children }) {
               <Task
                 taskName={t.taskName}
                 moveToActive={moveToActive}
+                moveToCompleted={moveToCompleted}
+                key={t.id}
                 keyID={t.id}
               />
             );
@@ -116,17 +128,33 @@ function App({ children }) {
           task={filteredByActive}
         >
           {filteredByActive.map((t) => {
-            return <Task taskName={t.taskName} />;
+            return (
+              <Task
+                taskName={t.taskName}
+                key={t.id}
+                moveToActive={moveToActive}
+                moveToCompleted={moveToCompleted}
+                keyID={t.id}
+              />
+            );
           })}
         </MainTaskContainer>
 
         <MainTaskContainer
           sectionName="COMPLETED"
           currentNumbers={`(${filteredByCompleted.length})`}
-          task={filteredByActive}
+          task={filteredByCompleted}
         >
           {filteredByCompleted.map((t) => {
-            return <Task taskName={t.taskName} />;
+            return (
+              <Task
+                taskName={t.taskName}
+                key={t.id}
+                moveToActive={moveToActive}
+                moveToCompleted={moveToCompleted}
+                keyID={t.id}
+              />
+            );
           })}
         </MainTaskContainer>
       </div>
