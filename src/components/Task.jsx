@@ -7,7 +7,6 @@ const Task = ({
   deleteTask,
   keyID,
 }) => {
-  console.log(keyID);
   return (
     <div className="taskWrapper">
       <h3>{taskName}</h3>

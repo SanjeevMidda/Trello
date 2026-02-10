@@ -66,8 +66,6 @@ function App({ children }) {
         task.id === id ? { ...task, status: "active" } : task
       )
     );
-
-    console.log(id);
   };
 
   // create function to move to Completed
@@ -96,13 +94,24 @@ function App({ children }) {
     (task) => task.status === "completed"
   );
 
+  // Function to save user input
+  const saveUserInput = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  console.log(userInput);
   return (
     <div className="App">
       {/* // create title */}
 
       <header>
         <div className="circle"></div>
-        <input type="text" placeholder="Enter Task" />
+        <input
+          type="text"
+          placeholder="Enter Task"
+          value={userInput}
+          onChange={saveUserInput}
+        />
       </header>
 
       {/* // create component for number of items */}
