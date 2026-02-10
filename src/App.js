@@ -78,6 +78,12 @@ function App({ children }) {
     );
   };
 
+  // Create function to delete task
+  const deleteTask = (id) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  };
+
   // filter by current
   const filteredByCurrent = tasks.filter((task) => task.status === "current");
 
@@ -117,6 +123,7 @@ function App({ children }) {
                 moveToCompleted={moveToCompleted}
                 key={t.id}
                 keyID={t.id}
+                deleteTask={deleteTask}
               />
             );
           })}
@@ -135,6 +142,7 @@ function App({ children }) {
                 moveToActive={moveToActive}
                 moveToCompleted={moveToCompleted}
                 keyID={t.id}
+                deleteTask={deleteTask}
               />
             );
           })}
@@ -153,6 +161,7 @@ function App({ children }) {
                 moveToActive={moveToActive}
                 moveToCompleted={moveToCompleted}
                 keyID={t.id}
+                deleteTask={deleteTask}
               />
             );
           })}

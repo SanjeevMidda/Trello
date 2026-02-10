@@ -17,7 +17,12 @@ const Task = ({
           id="moveToCompleted"
           onClick={() => moveToCompleted(keyID)}
         ></button>
-        <button id="delete"></button>
+        <button
+          id="delete"
+          onClick={() => {
+            deleteTask(keyID);
+          }}
+        ></button>
       </div>
     </div>
   );
