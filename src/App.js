@@ -9,6 +9,7 @@ function App({ children }) {
   // create function for moving task to completed
   // create function to delete
   // add data
+  const [userInput, setUserInput] = useState("");
 
   const [tasks, setTasks] = useState([
     {
