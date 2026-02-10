@@ -58,6 +58,16 @@ function App({ children }) {
     },
   ]);
 
+  // Create function to move to Active
+  const moveToActive = (id) => {
+    console.log(id);
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, status: "active" } : task
+      )
+    );
+  };
+
   // filter by current
   const filteredByCurrent = tasks.filter((task) => task.status === "current");
 
@@ -68,6 +78,7 @@ function App({ children }) {
   const filteredByCompleted = tasks.filter(
     (task) => task.status === "completed"
   );
+
   return (
     <div className="App">
       {/* // create title */}
@@ -89,7 +100,13 @@ function App({ children }) {
           task={filteredByCurrent}
         >
           {filteredByCurrent.map((t) => {
-            return <Task taskName={t.taskName} />;
+            return (
+              <Task
+                taskName={t.taskName}
+                moveToActive={moveToActive}
+                keyID={t.id}
+              />
+            );
           })}
         </MainTaskContainer>
 
